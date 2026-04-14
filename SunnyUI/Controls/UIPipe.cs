@@ -571,7 +571,7 @@ namespace Sunny.UI
 
         private void PaintFlow(Graphics g)
         {
-            if (IsDesignMode) return;
+            if (DesignMode) return;
             if (!Active) return;
             Color color = Color.FromArgb(FlowColorAlpha, FlowColor);
             if (Direction == UILine.LineDirection.Horizontal)

@@ -50,7 +50,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Windows.Forms;
@@ -1178,22 +1177,11 @@ namespace Sunny.UI
             ReceiveParams?.Invoke(this, e);
         }
 
-        protected bool IsDesignMode
-        {
-            get
-            {
-                if (DesignMode) return true;
-                if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return true;
-                if (Process.GetCurrentProcess().ProcessName == "devenv") return true;
-                return false;
-            }
-        }
-
         public event OnReceiveParams ReceiveParams;
 
         public virtual void Translate()
         {
-            if (IsDesignMode) return;
+            if (DesignMode) return;
 
             var controls = this.GetInterfaceControls<ITranslate>(true);
             foreach (var control in controls)

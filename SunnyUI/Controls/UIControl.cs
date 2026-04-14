@@ -29,7 +29,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
@@ -128,20 +127,6 @@ namespace Sunny.UI
         public string TagString
         {
             get; set;
-        }
-
-        /// <summary>
-        /// 是否在设计期
-        /// </summary>
-        protected bool IsDesignMode
-        {
-            get
-            {
-                if (DesignMode) return true;
-                if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return true;
-                if (Process.GetCurrentProcess().ProcessName == "devenv") return true;
-                return false;
-            }
         }
 
         private ToolStripStatusLabelBorderSides _rectSides = ToolStripStatusLabelBorderSides.All;
